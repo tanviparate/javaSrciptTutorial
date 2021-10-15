@@ -17,7 +17,7 @@ function addEntry(operator, prevResult ,calNumber , presentResult){
     const logEntry = {
 
         operator :operator,
-        prevResult: presentResult,
+        prevResult: prevResult,
         number: calNumber,
         result: presentResult
     };
@@ -31,7 +31,7 @@ function add(){
     currentResult  += enteredNumber;
     createAndWriteOutput('+', initialResult,enteredNumber);
    
-    addEntry("Add", initialResult,enteredNumber,currentResult);
+  addEntry("Add", initialResult,enteredNumber,currentResult);
     
 }
 
@@ -60,10 +60,9 @@ function divide(){
     addEntry("Divide", initialResult,enteredNumber,currentResult);
 }
 
+
 addBtn.addEventListener('click',add);
-subtractBtn.addEventListener('click',subtract);
-multiplyBtn.addEventListener("click", multiply);
-divideBtn.addEventListener('click',divide);
-
-
+multiplyBtn.addEventListener("click",multiply);
+subtractBtn.addEventListener("click",subtract);
+divideBtn.addEventListener("click",divide);
 

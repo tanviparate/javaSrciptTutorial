@@ -25,39 +25,52 @@ function addEntry(operator, prevResult ,calNumber , presentResult){
     console.log(logEntries);
 }
 
-function add(){
+function calculateResult(calculationType){
+
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
-    currentResult  += enteredNumber;
-    createAndWriteOutput('+', initialResult,enteredNumber);
-   
-  addEntry("Add", initialResult,enteredNumber,currentResult);
+    let mathOperator ;
+    if(calculationType== 'Add'){
+
+        currentResult  += enteredNumber;
+        mathOperator = '+';
+    }else  if (calculationType == "Subtract"){
+
+        currentResult -= enteredNumber; 
+        mathOperator = '-';
+    }else if (calculationType== 'multiply'){
+
+        currentResult *= enteredNumber;
+        mathOperator = '*';
+    } else if( calculationType == 'Divide'){
+       
+        currentResult /= enteredNumber; 
+        mathOperator = '/';
+    }
+
     
+    createAndWriteOutput(mathOperator, initialResult,enteredNumber);
+   
+  addEntry(calculationType, initialResult,enteredNumber,currentResult);
+
+
+}
+
+function add(){
+    calculateResult('Add');
 }
 
 function subtract(){
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult -= enteredNumber;
-    createAndWriteOutput('-', initialResult,enteredNumber);
-    addEntry("subtract", initialResult,enteredNumber,currentResult);
+    calculateResult('Subtract');
 
 }
 
 function multiply(){
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult *= enteredNumber;
-    createAndWriteOutput('*', initialResult,enteredNumber);
-    addEntry("multiply", initialResult,enteredNumber,currentResult);
+    calculateResult('multiply');
 }
 
 function divide(){
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult /=  enteredNumber;
-    createAndWriteOutput('/', initialResult,enteredNumber);
-    addEntry("Divide", initialResult,enteredNumber,currentResult);
+    calculateResult('Divide');
 }
 
 
